@@ -22,6 +22,17 @@
             background-size: cover;
         }
 
+        #countdown {
+            font-size: 280px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: hidden;
+            user-select: none;
+        }
+
         #raket {
             width: 100px;
             height: 100px;
@@ -98,8 +109,114 @@
         }
 
         .knop {
-            width: 150px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 2600px) {
+            #startscreen h1 {
+            font-size: 130px;
+            position: absolute;
+            top: 0;
+            margin-top: 50px;
+            }
+
+            #startscreen p {
+            font-size: 30px;
+            margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 1700px) {
+            #startscreen h1 {
+            font-size: 100px;
+            position: absolute;
+            top: 0;
+            margin-top: 40px;
+            }
+
+            #startscreen p {
+            font-size: 25px;
+            margin-bottom: 25px;
+            }
+
+            .knop {
+            width: 180px;
             margin-bottom: 5px;
+            }
+
+            #countdown {
+            font-size: 200px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            #startscreen h1 {
+            font-size: 80px;
+            position: absolute;
+            top: 0;
+            margin-top: 60px;
+            }
+
+            #startscreen p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            }
+
+            .knop {
+            width: 160px;
+            margin-bottom: 5px;
+            }
+
+            #countdown {
+            font-size: 100px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            #startscreen h1 {
+            font-size: 60px;
+            position: absolute;
+            top: 0;
+            margin-top: 70px;
+            }
+
+            #startscreen p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            }
+
+            .knop {
+            width: 140px;
+            margin-bottom: 5px;
+            }
+
+            #countdown {
+            font-size: 100px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            #startscreen h1 {
+            font-size: 50px;
+            position: absolute;
+            top: 0;
+            margin-top: 60px;
+            }
+
+            #startscreen p {
+            font-size: 15px;
+            margin-bottom: 30px;
+            }
+
+            .knop {
+            width: 120px;
+            margin-bottom: 5px;
+            }
+
+            #countdown {
+            font-size: 100px;
+            }
         }
     </style>
 
@@ -158,7 +275,7 @@
         let timeout = false;
         let score = document.getElementById('score');
         let highscore = document.getElementById('highscore');
-        let timegame = 30;
+        let timegame = 60;
         let time = document.getElementById('time').innerHTML = timegame;
         let scorestartscreen = document.getElementById('scorestartscreen');
         let easy = false;
