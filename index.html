@@ -300,9 +300,6 @@
         let repeatRocket = 1200;
         let BGsound = new Audio('background.mp3');
         BGsound.loop = true;
-        document.addEventListener('click', () => {
-            BGsound.play();
-        }, { once: true });
         if (localStorage.getItem('highscore') === null) {
             localStorage.setItem('highscore', 0);
         }
@@ -316,6 +313,7 @@
             bgstartscreen.style.visibility = 'hidden';
             startcountdown();
             speed = 4
+            BGsound.play();
         });
 
         startnormal.addEventListener('click', () => {
@@ -325,6 +323,7 @@
             bgstartscreen.style.visibility = 'hidden';
             startcountdown();
             speed = 3
+            BGsound.play();
 
         });
 
@@ -335,6 +334,7 @@
             bgstartscreen.style.visibility = 'hidden';
             startcountdown();
             speed = 2
+            BGsound.play();
         });
 
         // counting down for game to start
@@ -396,6 +396,8 @@
                 if (currenttime === 0) {
                     clearInterval(interval);
                     startedgame = false;
+                    BGsound.pause();
+                    BGsound.currentTime = 0;
                     infoboard.style.visibility = 'hidden';
                     startscreen.style.visibility = 'visible';
                     bgstartscreen.style.visibility = 'visible';
