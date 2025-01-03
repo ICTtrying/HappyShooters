@@ -39,7 +39,6 @@
             position: absolute;
             top: 100vh;
             left: 50px;
-            visibility: visible;
             user-select: none;
         }
         @keyframes raket {
@@ -116,22 +115,23 @@
         @media (max-width: 2600px) {
             #startscreen h1 {
             font-size: 130px;
-            position: absolute;
-            top: 0;
-            margin-top: 50px;
+            margin-bottom: 100px;
             }
 
             #startscreen p {
             font-size: 30px;
             margin-bottom: 30px;
             }
+
+            .knop {
+            width: 200px;
+            margin-bottom: 5px;
+            }
         }
 
         @media (max-width: 1700px) {
             #startscreen h1 {
             font-size: 100px;
-            position: absolute;
-            top: 0;
             margin-top: 40px;
             }
 
@@ -153,8 +153,6 @@
         @media (max-width: 1200px) {
             #startscreen h1 {
             font-size: 80px;
-            position: absolute;
-            top: 0;
             margin-top: 60px;
             }
 
@@ -176,8 +174,6 @@
         @media (max-width: 800px) {
             #startscreen h1 {
             font-size: 60px;
-            position: absolute;
-            top: 0;
             margin-top: 70px;
             }
 
@@ -199,9 +195,28 @@
         @media (max-width: 500px) {
             #startscreen h1 {
             font-size: 50px;
-            position: absolute;
-            top: 0;
-            margin-top: 60px;
+            margin: 60px;
+            }
+
+            #startscreen p {
+            font-size: 15px;
+            margin-bottom: 30px;
+            }
+
+            .knop {
+            width: 120px;
+            margin-bottom: 5px;
+            }
+
+            #countdown {
+            font-size: 100px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            #startscreen h1 {
+            font-size: 40px;
+            margin: 50px;
             }
 
             #startscreen p {
@@ -347,6 +362,7 @@
                     let size = Math.floor(Math.random() * 70) + 100;
                     explosion.style.width = size + 'px';
                     explosion.style.height = size + 'px';
+                    explosion.style.zIndex = '1';
                     explosion.style.backgroundImage = 'url(https://png.pngtree.com/png-clipart/20230824/ourmid/pngtree-cartoon-bomb-gunpowder-explosion-flame-burning-decorative-pattern-png-image_9183772.png)';
                     explosion.style.backgroundSize = 'cover';
                     explosion.style.left = (e.clientX - 50) + 'px';
@@ -361,7 +377,7 @@
 
                     setTimeout(() => {
                         timeout = false;
-                    }, 500);
+                    }, 700);
                 }
             }
         });
@@ -401,11 +417,15 @@
                     let position = Math.floor(Math.random() * (window.innerWidth - 100));
                     const clonedraket = raket.cloneNode(true);
                     clonedraket.addEventListener('click', () => {
+                    if (timeout === false) {
                     clonedraket.remove();
                     score.innerHTML = parseInt(score.innerHTML) + 1;
+                    };
                     });
                     clonedraket.style.left = position + 'px';
                     clonedraket.style.top = '95vh';
+                    clonedraket.style.cursor = 'pointer';
+                    clonedraket.style.zIndex = '2';
                     document.body.appendChild(clonedraket);
                     clonedraket.style.animation = 'raket' + ' ' + speed + 's' + ' ' + 'linear';
                     clonedraket.addEventListener('animationend', () => {
