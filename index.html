@@ -300,7 +300,9 @@
         let repeatRocket = 1200;
         let BGsound = new Audio('background.mp3');
         BGsound.loop = true;
-        BGsound.play();
+        document.addEventListener('click', () => {
+            BGsound.play();
+        }, { once: true });
         if (localStorage.getItem('highscore') === null) {
             localStorage.setItem('highscore', 0);
         }
