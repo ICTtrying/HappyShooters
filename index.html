@@ -396,11 +396,11 @@
                 if (currenttime === 0) {
                     clearInterval(interval);
                     startedgame = false;
-                    BGsound.pause();
-                    BGsound.currentTime = 0;
                     infoboard.style.visibility = 'hidden';
                     startscreen.style.visibility = 'visible';
                     bgstartscreen.style.visibility = 'visible';
+                    BGsound.pause();
+                    BGsound.currentTime = 0;
                     timer.innerHTML = timegame;
                     startmoveRocket();
                     if (parseInt(score.innerHTML) > parseInt(highscore.innerHTML)) {
