@@ -1,0 +1,3 @@
+[submodule "Happy-Shooters"]
+    path = Happy-Shooters
+    url = https://github.com/ICTtrying/HappyShooters.git
