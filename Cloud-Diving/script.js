@@ -3,16 +3,20 @@ const playGround = document.getElementById('ContainerFalling');
 const character = document.getElementById('character');
 character.style.left = '250px';
 let speed = 6;
-let Gamestarted = false;
+let score = document.getElementById('score');
+let wait = false;
 
 document.getElementById('StartButton').addEventListener('click', () => {
     document.getElementById('StartButton').style.display = 'none';
     character.style.animation = 'falling 3s linear infinite';
     cloud.style.animation = 'CloudMoveFirstTime 7s linear';
+    score.style.visibility = 'visible';
+    score.innerHTML = '0';
     document.body.style.cursor = 'none';
-    Gamestarted = true;
+    move();
     // dit roept de functie aan die checkt of de cloud boven de 0px is, maar ik weet niet waar die de functie aanroept.
     requestAnimationFrame(checkCloudPosition);
+    requestAnimationFrame(checkCloudPosition2);
 });
 
 // deze functie is gemaakt door chatGPT. Ik weet niet hoe, maar het werkt.
@@ -22,6 +26,18 @@ function checkCloudPosition() {
     } else {
         requestAnimationFrame(checkCloudPosition);
     }
+}
+
+function checkCloudPosition2() {
+    if (cloud.getBoundingClientRect().top < window.innerHeight * 0.15) {
+        if (wait === false) {
+            score.innerHTML = parseInt(score.innerHTML) + 1;
+            wait = true;
+        }
+    } else {
+        wait = false;
+    }
+    requestAnimationFrame(checkCloudPosition2);
 }
 
 function NewCloud() {
@@ -62,54 +78,52 @@ function NewCloud() {
     requestAnimationFrame(checkCloudPosition);
 }
 
-//increase game speed
 
-setInterval(() => {
-    if (Gamestarted) {
+    //movement system
+function move() {
+    let CharacterSpeed = 1;
+    let moveRight = false;
+    let moveLeft = false;
+    let moving = false;
+
+    setInterval(() => {
         speed -= 0.07; // Increase the speed by decreasing the interval time
         CharacterSpeed += 0.03;
-    }
-}, 1000);
+    }, 1000);
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            moveRight = true;
+        }
+        if (e.key === 'ArrowLeft') {
+            moveLeft = true;
+        }
+        if (!moving) {
+            moving = true;
+            move();
+        }
+    });
 
+    document.addEventListener('keyup', (e) => {
+        if (e.key === 'ArrowRight') {
+            moveRight = false;
+        }
+        if (e.key === 'ArrowLeft') {
+            moveLeft = false;
+        }
+    });
 
-//movement system
-let CharacterSpeed = 1;
-let moveRight = false;
-let moveLeft = false;
-let moving = false;
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-        moveRight = true;
-    }
-    if (e.key === 'ArrowLeft') {
-        moveLeft = true;
-    }
-    if (!moving) {
-        moving = true;
-        move();
-    }
-});
-
-document.addEventListener('keyup', (e) => {
-    if (e.key === 'ArrowRight') {
-        moveRight = false;
-    }
-    if (e.key === 'ArrowLeft') {
-        moveLeft = false;
-    }
-});
-
-function move() {
-    if (moveRight && parseInt(character.style.left) < 465) {
-        character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
-    }
-    if (moveLeft && parseInt(character.style.left) > 35) {
-        character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
-    }
-    if (moveRight || moveLeft) {
-        requestAnimationFrame(move);
-    } else {
-        moving = false;
-    }
-};
+    function move() {
+        if (moveRight && parseInt(character.style.left) < 465) {
+            character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
+        }
+        if (moveLeft && parseInt(character.style.left) > 35) {
+            character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
+        }
+        if (moveRight || moveLeft) {
+            requestAnimationFrame(move);
+        } else {
+            moving = false;
+        }
+    };
+}
