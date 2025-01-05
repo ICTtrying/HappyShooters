@@ -23,7 +23,7 @@ body {
     height: 170px;
     margin-top: -15%;
     position: absolute;
-    top: 100vh;
+    top: 110vh;
     left: 53%;
     user-select: none;
 }
@@ -58,4 +58,32 @@ body {
     border: 3px solid black;
     cursor: pointer;
     user-select: none;
+}
+
+#character {
+    background-image: url('https://cdn2.iconfinder.com/data/icons/cute-monsters-flat/60/Round-Spotted-Chin-Monster-cartoon-character-512.png');
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    rotate: 0deg;
+    user-select: none;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateX(-50%) rotate(-20deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(20deg);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(-20deg);
+    }
 }

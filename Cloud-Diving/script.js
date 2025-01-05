@@ -1,9 +1,12 @@
 let cloud = document.getElementById('cloud');
 const playGround = document.getElementById('ContainerFalling');
+const character = document.getElementById('character');
 let speed = 6;
+CharacterSpeed = 2;
 
 document.getElementById('StartButton').addEventListener('click', () => {
     document.getElementById('StartButton').style.display = 'none';
+    character.style.animation = 'falling 3s linear infinite';
     cloud.style.animation = 'CloudMoveFirstTime 7s linear';
     document.body.style.cursor = 'none';
     // dit roept de functie aan die checkt of de cloud boven de 0px is, maar ik weet niet waar die de functie aanroept.
@@ -12,7 +15,7 @@ document.getElementById('StartButton').addEventListener('click', () => {
 
 // deze functie is gemaakt door chatGPT. Ik weet niet hoe, maar het werkt.
 function checkCloudPosition() {
-    if (cloud.getBoundingClientRect().top < 10) {
+    if (cloud.getBoundingClientRect().top < window.innerHeight * 0.05) {
         NewCloud();
     } else {
         requestAnimationFrame(checkCloudPosition);
@@ -51,3 +54,5 @@ function NewCloud() {
     cloud = clonedCloud;
     requestAnimationFrame(checkCloudPosition);
 }
+
+
