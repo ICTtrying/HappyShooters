@@ -1,0 +1,61 @@
+body {
+    background-color: darkblue;
+    overflow: hidden;
+}
+
+#ContainerFalling {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 100vh;
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+    overflow: hidden;
+    background-color: aqua;
+}
+
+#cloud {
+    background-image: url('https://png.pngtree.com/png-clipart/20220912/original/pngtree-single-thin-bubbly-cartoon-cloud-png-image_8585184.png');
+    background-size: cover;
+    width: 250px;
+    height: 170px;
+    margin-top: -15%;
+    position: absolute;
+    top: 100vh;
+    left: 53%;
+    user-select: none;
+}
+@keyframes CloudMoveFirstTime {
+    0% {
+        top: 150vh;
+    }
+
+    100% {
+        top: -20vh;
+    }
+}
+@keyframes CloudMove {
+    0% {
+        top: 100vh;
+    }
+
+    100% {
+        top: -20vh;
+    }
+}
+
+#StartButton {
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border-radius: 10px;
+    border: 3px solid black;
+    cursor: pointer;
+    user-select: none;
+}

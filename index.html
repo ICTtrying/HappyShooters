@@ -69,11 +69,11 @@
                 <span>Shoot rockets out <br> of the sky!</span>
             </div>
         
-            <div class="card text-center">
-                <img src="Game-foto's/comingsoon.png" alt="Happy-shooters" class="image">
-                <h4>Coming Soon!</h4>
+            <div id="CloudDiving" class="card text-center">
+                <img src="Game-foto's/CloudDiving.png" alt="Cloud Diving" class="image">
+                <h4>Cloud Diving</h4>
                 <br>
-                <span>I AM WORKING ON IT!!!!!</span>
+                <span>Fall out of the sky and avoid the clouds!</span>
             </div>
         
             <div class="card text-center">
@@ -87,9 +87,14 @@
 
     <script>
         let HappyShooters = document.getElementById("HappyShooters");
+        let CloudDiving = document.getElementById("CloudDiving");
 
         HappyShooters.addEventListener("click", () => {
             window.location.href = "Happy-Shooters/index.html";
+        });
+
+        CloudDiving.addEventListener("click", () => {
+            window.location.href = "Cloud-Diving/index.html";
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

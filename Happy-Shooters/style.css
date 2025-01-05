@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://media.istockphoto.com/id/809971888/photo/night-sky-landscape.jpg?s=612x612&w=0&k=20&c=ku3RWu4DQ8ErN-KbT1Act72LMocTwSAAm3UDkLiako0=');
+    background-size: cover;
+}
+
+#countdown {
+    font-size: 280px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    user-select: none;
+}
+
+#raket {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 100vh;
+    left: 50px;
+    user-select: none;
+}
+@keyframes raket {
+    0% {
+        top: 100vh;
+    }
+
+    100% {
+        top: -100px;
+    }
+    
+}
+
+#startscreen {
+    margin-top: 0;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    visibility: visible;
+    user-select: none;
+    z-index: 5;
+}
+
+#background-startscreen {
+    background-color: black;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    visibility: visible;
+    z-index: 4;
+}
+
+#countdown {
+    font-size: 300px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    user-select: none;
+}
+
+#infoboard {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    gap: 20px;
+    visibility: hidden;
+    user-select: none;
+    z-index: 5;
+}
+
+.knop {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 2600px) {
+    #startscreen h1 {
+    font-size: 130px;
+    margin-bottom: 100px;
+    }
+
+    #startscreen p {
+    font-size: 30px;
+    margin-bottom: 30px;
+    }
+
+    .knop {
+    width: 200px;
+    margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 1700px) {
+    #startscreen h1 {
+    font-size: 100px;
+    margin-top: 40px;
+    }
+
+    #startscreen p {
+    font-size: 25px;
+    margin-bottom: 25px;
+    }
+
+    .knop {
+    width: 180px;
+    margin-bottom: 5px;
+    }
+
+    #countdown {
+    font-size: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #startscreen h1 {
+    font-size: 80px;
+    margin-top: 60px;
+    }
+
+    #startscreen p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    }
+
+    .knop {
+    width: 160px;
+    margin-bottom: 5px;
+    }
+
+    #countdown {
+    font-size: 100px;
+    }
+}
+
+@media (max-width: 800px) {
+    #startscreen h1 {
+    font-size: 60px;
+    margin-top: 70px;
+    }
+
+    #startscreen p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    }
+
+    .knop {
+    width: 140px;
+    margin-bottom: 5px;
+    }
+
+    #countdown {
+    font-size: 100px;
+    }
+}
+
+@media (max-width: 500px) {
+    #startscreen h1 {
+    font-size: 50px;
+    margin: 60px;
+    }
+
+    #startscreen p {
+    font-size: 15px;
+    margin-bottom: 30px;
+    }
+
+    .knop {
+    width: 120px;
+    margin-bottom: 5px;
+    }
+
+    #countdown {
+    font-size: 100px;
+    }
+}
+
+@media (max-width: 450px) {
+    #startscreen h1 {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 50px;
+    }
+
+    #startscreen p {
+    font-size: 15px;
+    margin-bottom: 30px;
+    }
+
+    .knop {
+    width: 120px;
+    margin-bottom: 5px;
+    }
+
+    #countdown {
+    font-size: 100px;
+    }
+}
