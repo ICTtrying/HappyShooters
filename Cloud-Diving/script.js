@@ -8,11 +8,13 @@ let wait = false;
 let wait2 = false;
 let hit = false;
 let GameOnline = false;
+let CharacterSpeed = 1;
 
 document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
     document.getElementById('StartButton').style.display = 'none';
     document.getElementById('cloudcount').style.visibility = 'visible';
+    document.getElementById('HitCount').innerHTML = '0';
     character.style.animation = 'falling 3s linear infinite';
     NewCloud();
     score.style.visibility = 'visible';
@@ -144,14 +146,7 @@ function move() {
             moving = false;
         }
     };
-}
-
-// let char = {
-//     rect : character.getBoundingClientRect(),
-//     hit : false
-// }
-
-// char.hit = true 
+} 
 
 function checkCollision() {
     let characterRect = character.getBoundingClientRect();
@@ -187,6 +182,6 @@ function gameOver() {
     character.style.animation = 'none';
     character.style.left = '250px';
     document.getElementById('cloudcount').style.visibility = 'hidden';
-
-
+    speed = 6;
+    CharacterSpeed = 1;
 };
