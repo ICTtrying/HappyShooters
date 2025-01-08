@@ -26,13 +26,10 @@ body {
     position: absolute;
     top: 110vh;
     left: 40%;
-    transform: translateX('-50%');
     user-select: none;
-    border: 1px solid black;
-    border-radius: 40%;
-    border-bottom-left-radius: 60%;
-    border-top-right-radius: 60%;
+    z-index: 5;
 }
+
 @keyframes CloudMoveFirstTime {
     0% {
         top: 150vh;
@@ -42,15 +39,26 @@ body {
         top: -20vh;
     }
 }
+
 @keyframes CloudMove {
     0% {
         top: 100vh;
     }
-
     100% {
         top: -20vh;
     }
 }
+
+@keyframes cloudsdisappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 
 #StartButton {
     position: absolute;
@@ -78,6 +86,7 @@ body {
     border-radius: 50%;
     rotate: 0deg;
     user-select: none;
+    z-index: 4;
 }
 
 @keyframes falling {
@@ -103,4 +112,13 @@ body {
     color: white;
     user-select: none;
     visibility: hidden;
+    z-index: 5;
+}
+
+#cloudcount {
+    color: white;
+    font-size: 30px;
+    user-select: none;
+    visibility: hidden;
+    z-index: 5;
 }
