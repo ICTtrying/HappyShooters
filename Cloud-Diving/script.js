@@ -9,6 +9,9 @@ let wait2 = false;
 let hit = false;
 let GameOnline = false;
 let CharacterSpeed = 1;
+if (window.innerWidth <= 500) {
+    CharacterSpeed = 0.7;
+}
 
 document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;

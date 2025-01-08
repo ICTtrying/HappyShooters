@@ -24,7 +24,7 @@ body {
     height: 135px;
     margin-top: -15%;
     position: absolute;
-    top: 110vh;
+    bottom: -40%;
     left: 40%;
     user-select: none;
     z-index: 5;
@@ -57,8 +57,6 @@ body {
         opacity: 0;
     }
 }
-
-
 
 #StartButton {
     position: absolute;
@@ -116,9 +114,46 @@ body {
 }
 
 #cloudcount {
+    position: absolute;
+    left: 5%;
+    top: 2%;
     color: white;
     font-size: 30px;
     user-select: none;
     visibility: hidden;
     z-index: 5;
+}
+
+@media (max-width: 500px) {
+    #ContainerFalling {
+        width: 100%;
+        border-left: none;
+        border-right: none;
+    }
+
+    #cloud {
+        width: 150px;
+        height: 90px;
+        left: 30%;
+    }
+
+    #StartButton {
+        width: 80px;
+        height: 40px;
+        top: 60vh;
+    }
+
+    #character {
+        width: 50px;
+        height: 50px;
+        left: 50%;
+    }
+
+    #score {
+        font-size: 50px;
+    }
+
+    #cloudcount {
+        font-size: 20px;
+    }
 }
