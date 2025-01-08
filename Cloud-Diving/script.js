@@ -65,7 +65,7 @@ function NewCloud() {
         }
         if (randomX === 1) {
             console.log('1')
-            clonedCloud.style.left = '15%';
+            clonedCloud.style.left = '16%';
             playGround.appendChild(clonedCloud);
             clonedCloud.hit = false; // Add hit property to the cloned cloud
             clonedCloud.style.animation = 'CloudMove' + ' ' + speed + 's' + ' ' + 'linear';
@@ -134,6 +134,10 @@ function move() {
         });
 
         function move() {
+            if (GameOnline === false) {
+                moving = false;
+                return;
+            }
             if (moveRight && parseInt(character.style.left) < 465) {
                 character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
             }
@@ -187,4 +191,3 @@ function gameOver() {
     CharacterSpeed = 1;
     move();
 };
-
