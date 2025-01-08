@@ -58,7 +58,7 @@ function NewCloud() {
 
         if (randomX === 0) {
             console.log('0')
-            clonedCloud.style.left = '-2%';
+            clonedCloud.style.left = '0%';
             playGround.appendChild(clonedCloud);
             clonedCloud.hit = false; // Add hit property to the cloned cloud
             clonedCloud.style.animation = 'CloudMove' + ' ' + speed + 's' + ' ' + 'linear';
@@ -99,53 +99,54 @@ function NewCloud() {
 
 //movement system
 function move() {
-    let CharacterSpeed = 1;
-    let moveRight = false;
-    let moveLeft = false;
-    let moving = false;
+    if (GameOnline === true) {
+        let moveRight = false;
+        let moveLeft = false;
+        let moving = false;
 
-    setInterval(() => {
-        if (speed > 1) {
-            speed -= 0.07; // Increase the speed by decreasing the interval time
-            CharacterSpeed += 0.03;
-        }
-    }, 1000);
+        setInterval(() => {
+            if (speed > 1) {
+                speed -= 0.07; // Increase the speed by decreasing the interval time
+                CharacterSpeed += 0.03;
+            }
+        }, 1000);
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            moveRight = true;
-        }
-        if (e.key === 'ArrowLeft') {
-            moveLeft = true;
-        }
-        if (!moving) {
-            moving = true;
-            move();
-        }
-    });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                moveRight = true;
+            }
+            if (e.key === 'ArrowLeft') {
+                moveLeft = true;
+            }
+            if (!moving) {
+                moving = true;
+                move();
+            }
+        });
 
-    document.addEventListener('keyup', (e) => {
-        if (e.key === 'ArrowRight') {
-            moveRight = false;
-        }
-        if (e.key === 'ArrowLeft') {
-            moveLeft = false;
-        }
-    });
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'ArrowRight') {
+                moveRight = false;
+            }
+            if (e.key === 'ArrowLeft') {
+                moveLeft = false;
+            }
+        });
 
-    function move() {
-        if (moveRight && parseInt(character.style.left) < 465) {
-            character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
-        }
-        if (moveLeft && parseInt(character.style.left) > 35) {
-            character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
-        }
-        if (moveRight || moveLeft) {
-            requestAnimationFrame(move);
-        } else {
-            moving = false;
-        }
-    };
+        function move() {
+            if (moveRight && parseInt(character.style.left) < 465) {
+                character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
+            }
+            if (moveLeft && parseInt(character.style.left) > 35) {
+                character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
+            }
+            if (moveRight || moveLeft) {
+                requestAnimationFrame(move);
+            } else {
+                moving = false;
+            }
+        };
+    }
 } 
 
 function checkCollision() {
@@ -184,4 +185,6 @@ function gameOver() {
     document.getElementById('cloudcount').style.visibility = 'hidden';
     speed = 6;
     CharacterSpeed = 1;
+    move();
 };
+
