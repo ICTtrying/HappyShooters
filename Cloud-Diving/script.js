@@ -14,7 +14,7 @@ const mobileleft = document.getElementById('mobileleft');
 const mobileright = document.getElementById('mobileright');
 
 if (window.innerWidth < 500) {
-    character.style.left = window.innerWidth / 2 + 'px';
+    character.style.left = '50%';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
@@ -181,10 +181,10 @@ function movemobile() {
             moving = false;
             return;
         }
-        if (moveRight && parseFloat(character.style.left) < window.innerWidth - 35) {
+        if (moveRight && parseFloat(character.style.left) < window.innerWidth - 25) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
-        if (moveLeft && parseFloat(character.style.left) > 35) {
+        if (moveLeft && parseFloat(character.style.left) > 25) {
             character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
         }
         if (moveRight || moveLeft) {
@@ -227,9 +227,6 @@ function gameOver() {
     document.body.style.cursor = 'default';
     character.style.animation = 'none';
     character.style.left = '50%';
-    if (window.innerWidth < 500) {
-        character.style.left = window.innerWidth / 2 - 50 + 'px';
-    }
     document.getElementById('cloudcount').style.visibility = 'hidden';
     speed = 6;
     CharacterSpeed = 1;
