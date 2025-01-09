@@ -54,6 +54,27 @@ body {
     white-space: nowrap;
 }
 
+#scoremenu {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    z-index: 5;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    gap: 10px;
+    user-select: none;
+    border-radius: 5px;
+}
+
 #cloud {
     background-image: url('https://i.pinimg.com/originals/8f/6e/65/8f6e6534617dcdc81ace386e4b6905a1.png');
     background-size: contain;

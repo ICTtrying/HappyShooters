@@ -13,6 +13,10 @@ let title = document.getElementById('Title');
 const mobileleft = document.getElementById('mobileleft');
 const mobileright = document.getElementById('mobileright');
 let instructions = document.getElementById('instructions');
+let scoregame = document.getElementById('scoregame');
+let scoremenu = document.getElementById('scoremenu');
+highscore.innerHTML = localStorage.getItem('HighScore');
+
 
 if (window.innerWidth < 500) {
     character.style.left = window.innerWidth / 2 + 'px';
@@ -24,6 +28,7 @@ document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
     document.getElementById('StartButton').style.display = 'none';
     document.getElementById('cloudcount').style.visibility = 'visible';
+    scoremenu.style.display = 'none';
     character.style.visibility = 'visible';
     instructions.style.display = 'none';
     document.getElementById('HitCount').innerHTML = '0';
@@ -100,7 +105,7 @@ function move() {
     setInterval(() => {
         if (speed > 1) {
             speed -= 0.07;
-            CharacterSpeed += 0.03;
+            CharacterSpeed += 0.04;
         }
     }, 1000);
 
@@ -186,8 +191,6 @@ function movemobile() {
             moving = false;
             return;
         }
-        const characterWidth = character.offsetWidth;
-        const containerWidth = playGround.offsetWidth;
         if (moveRight && parseFloat(character.style.left) < window.innerWidth - 25) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
@@ -227,9 +230,11 @@ function checkCollision() {
 setInterval(checkCollision, 100);
 
 function gameOver() {
+    scoregame.innerHTML = score.innerHTML;
     wait2 = false;
     GameOnline = false;
     document.getElementById('StartButton').style.display = 'block';
+    scoremenu.style.display = 'block';
     instructions.style.display = 'block';
     score.style.visibility = 'hidden';
     document.body.style.cursor = 'default';
@@ -245,4 +250,9 @@ function gameOver() {
     CharacterSpeed = 1;
     title.style.display = 'block';
     character.style.visibility = 'hidden';
+    if (parseInt(score.innerHTML) > parseInt(localStorage.getItem('HighScore'))) {
+        localStorage.setItem('HighScore', score.innerHTML);
+        highscore.innerHTML = score.innerHTML;
+    }
+
 }
