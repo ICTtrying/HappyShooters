@@ -191,6 +191,9 @@ body {
 }
 
 @media (max-width: 500px) {
+    scoremenu {
+        width: 45%;
+    }
     #instructions {
         top: 35%;
         padding: 50%;
