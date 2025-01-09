@@ -188,7 +188,7 @@ function movemobile() {
         }
         const characterWidth = character.offsetWidth;
         const containerWidth = playGround.offsetWidth;
-        if (moveRight && parseFloat(character.style.left) < containerWidth - 25) {
+        if (moveRight && parseFloat(character.style.left) < window.innerWidth - 25) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
         if (moveLeft && parseFloat(character.style.left) > 25) {
@@ -237,6 +237,7 @@ function gameOver() {
     character.style.left = '250px';
     if (window.innerWidth < 500) {
         character.style.left = window.innerWidth / 2 + 'px';
+        character.style.visibility = 'hidden';
     }
     character.style.transform = 'translateX(-50%)';
     document.getElementById('cloudcount').style.visibility = 'hidden';
