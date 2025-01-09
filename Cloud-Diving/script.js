@@ -9,6 +9,9 @@ let hit = false;
 let GameOnline = false;
 let CharacterSpeed = 1;
 let title = document.getElementById('Title');
+character.style.left = '50%';
+character.style.transform = 'translateX(-50%)';
+
 
 document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
