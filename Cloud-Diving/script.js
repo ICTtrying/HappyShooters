@@ -1,7 +1,6 @@
 let cloud = document.getElementById('cloud');
 const playGround = document.getElementById('ContainerFalling');
 const character = document.getElementById('character');
-character.style.left = 'calc(50% - 25px)'; // Assuming the character width is 50px
 let speed = 6;
 let score = document.getElementById('score');
 let wait = false;
@@ -187,7 +186,7 @@ function gameOver() {
     score.style.visibility = 'hidden';
     document.body.style.cursor = 'default';
     character.style.animation = 'none';
-    character.style.left = '250px';
+    character.style.left = '50%';
     document.getElementById('cloudcount').style.visibility = 'hidden';
     speed = 6;
     CharacterSpeed = 1;
