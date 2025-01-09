@@ -82,6 +82,7 @@ body {
     cursor: pointer;
     user-select: none;
     font-size: larger;
+    z-index: 7;
 }
 
 #character {
@@ -96,7 +97,7 @@ body {
     border-radius: 50%;
     rotate: 0deg;
     user-select: none;
-    z-index: 4;
+    z-index: 6;
 }
 
 @keyframes falling {
@@ -137,6 +138,31 @@ body {
 }
 
 @media (max-width: 500px) {
+
+    #mobilemovement {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 50%;
+        user-select: none;
+    }
+
+    #mobileleft {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        z-index: 6;
+    }
+
+    #mobileright {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        z-index: 6;
+    }
+
     #ContainerFalling {
         width: 100%;
         border-left: none;
