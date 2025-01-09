@@ -12,15 +12,18 @@ let CharacterSpeed = 1;
 let title = document.getElementById('Title');
 const mobileleft = document.getElementById('mobileleft');
 const mobileright = document.getElementById('mobileright');
+let instructions = document.getElementById('instructions');
 
 if (window.innerWidth < 500) {
     character.style.left = '50%';
+    character.style.transform = 'translateX(-50%)';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
     document.getElementById('StartButton').style.display = 'none';
     document.getElementById('cloudcount').style.visibility = 'visible';
+    instructions.style.display = 'none';
     document.getElementById('HitCount').innerHTML = '0';
     title.style.display = 'none';
     character.style.animation = 'falling 3s linear infinite';
@@ -181,10 +184,12 @@ function movemobile() {
             moving = false;
             return;
         }
-        if (moveRight && parseFloat(character.style.left) < window.innerWidth - 25) {
+        const characterWidth = character.offsetWidth;
+        const containerWidth = playGround.offsetWidth;
+        if (moveRight && parseFloat(character.style.left) < containerWidth - characterWidth) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
-        if (moveLeft && parseFloat(character.style.left) > 25) {
+        if (moveLeft && parseFloat(character.style.left) > 0) {
             character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
         }
         if (moveRight || moveLeft) {
@@ -223,10 +228,12 @@ function gameOver() {
     wait2 = false;
     GameOnline = false;
     document.getElementById('StartButton').style.display = 'block';
+    instructions.style.display = 'block';
     score.style.visibility = 'hidden';
     document.body.style.cursor = 'default';
     character.style.animation = 'none';
     character.style.left = '50%';
+    character.style.transform = 'translateX(-50%)';
     document.getElementById('cloudcount').style.visibility = 'hidden';
     speed = 6;
     CharacterSpeed = 1;
