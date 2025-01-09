@@ -15,6 +15,7 @@ const mobileright = document.getElementById('mobileright');
 let instructions = document.getElementById('instructions');
 let scoregame = document.getElementById('scoregame');
 let scoremenu = document.getElementById('scoremenu');
+let highscore = document.getElementById('highscore');
 highscore.innerHTML = localStorage.getItem('HighScore');
 if (localStorage.getItem('HighScore') === null) {
     localStorage.setItem('HighScore', '0');
