@@ -14,7 +14,7 @@ const mobileleft = document.getElementById('mobileleft');
 const mobileright = document.getElementById('mobileright');
 
 if (window.innerWidth < 500) {
-    character.style.left = window.innerWidth / 2 - 50 + 'px';
+    character.style.left = window.innerWidth / 2 + 'px';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
@@ -148,7 +148,7 @@ function movemobile() {
     setInterval(() => {
         if (speed > 1) {
             speed -= 0.07;
-            CharacterSpeed += 0.03;
+            CharacterSpeed += 0.04;
         }
     }, 1000);
 
@@ -181,7 +181,7 @@ function movemobile() {
             moving = false;
             return;
         }
-        if (moveRight && parseFloat(character.style.left) < 465) {
+        if (moveRight && parseFloat(character.style.left) < window.innerWidth - 35) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
         if (moveLeft && parseFloat(character.style.left) > 35) {
