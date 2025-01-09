@@ -16,7 +16,10 @@ let instructions = document.getElementById('instructions');
 let scoregame = document.getElementById('scoregame');
 let scoremenu = document.getElementById('scoremenu');
 highscore.innerHTML = localStorage.getItem('HighScore');
-
+if (localStorage.getItem('HighScore') === null) {
+    localStorage.setItem('HighScore', '0');
+    highscore.innerHTML = '0';
+}
 
 if (window.innerWidth < 500) {
     character.style.left = window.innerWidth / 2 + 'px';
