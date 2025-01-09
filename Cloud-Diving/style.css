@@ -91,7 +91,7 @@ body {
     height: 70px;
     position: absolute;
     top: 15%;
-    left: 250px;
+    left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
     rotate: 0deg;

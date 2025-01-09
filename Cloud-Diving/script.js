@@ -1,7 +1,7 @@
 let cloud = document.getElementById('cloud');
 const playGround = document.getElementById('ContainerFalling');
 const character = document.getElementById('character');
-character.style.left = '250px';
+character.style.left = '50%';	
 let speed = 6;
 let score = document.getElementById('score');
 let wait = false;
@@ -10,20 +10,24 @@ let hit = false;
 let GameOnline = false;
 let CharacterSpeed = 1;
 let title = document.getElementById('Title');
-if (window.innerWidth <= 500) {
-    CharacterSpeed = 0.7;
-    if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-        document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-        document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-        document.documentElement.msRequestFullscreen();
-    }
 
-    character.style.left = window.innerWidth / 2 + 'px';
+// stukje van copilot geleerd
+function adjustForMobile() {
+    if (window.innerWidth <= 500) {
+        CharacterSpeed = 0.7;
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+            document.documentElement.msRequestFullscreen();
+        }
+    }
 }
+
+adjustForMobile();
 
 document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
