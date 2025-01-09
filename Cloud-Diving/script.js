@@ -22,7 +22,7 @@ if (window.innerWidth <= 500) {
         document.documentElement.msRequestFullscreen();
     }
 
-    character.style.left = Window.innerWidth / 2 + 'px';
+    character.style.left = window.innerWidth / 2 + 'px';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
