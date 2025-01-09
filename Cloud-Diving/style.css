@@ -125,6 +125,7 @@ body {
     rotate: 0deg;
     user-select: none;
     z-index: 6;
+    display: block;
 }
 
 @keyframes falling {
@@ -170,6 +171,7 @@ body {
 
 @media (max-width: 500px) {
     #instructions {
+        top: 35%;
         padding: 50%;
         height: 50%;
         width: 100%;
@@ -233,6 +235,7 @@ body {
         height: 50px;
         left: 50%;
         transform: translateX(-50%);
+        visibility: hidden;
     }
 
     #score {

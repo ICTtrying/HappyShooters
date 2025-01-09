@@ -15,7 +15,7 @@ const mobileright = document.getElementById('mobileright');
 let instructions = document.getElementById('instructions');
 
 if (window.innerWidth < 500) {
-    character.style.left = '50%';
+    character.style.left = window.innerWidth / 2 + 'px';
     character.style.transform = 'translateX(-50%)';
 }
 
@@ -23,6 +23,7 @@ document.getElementById('StartButton').addEventListener('click', () => {
     GameOnline = true;
     document.getElementById('StartButton').style.display = 'none';
     document.getElementById('cloudcount').style.visibility = 'visible';
+    character.style.visibility = 'visible';
     instructions.style.display = 'none';
     document.getElementById('HitCount').innerHTML = '0';
     title.style.display = 'none';
@@ -232,10 +233,14 @@ function gameOver() {
     score.style.visibility = 'hidden';
     document.body.style.cursor = 'default';
     character.style.animation = 'none';
-    character.style.left = '50%';
+    character.style.left = '250px';
+    if (window.innerWidth < 500) {
+        character.style.left = window.innerWidth / 2 + 'px';
+    }
     character.style.transform = 'translateX(-50%)';
     document.getElementById('cloudcount').style.visibility = 'hidden';
     speed = 6;
     CharacterSpeed = 1;
     title.style.display = 'block';
+    character.style.visibility = 'hidden';
 }
