@@ -12,7 +12,17 @@ let CharacterSpeed = 1;
 let title = document.getElementById('Title');
 if (window.innerWidth <= 500) {
     CharacterSpeed = 0.7;
-    document.documentElement.requestFullscreen();
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+
+    character.style.left = Window.innerWidth / 2 + 'px';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
