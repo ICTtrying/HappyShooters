@@ -17,6 +17,7 @@ let instructions = document.getElementById('instructions');
 if (window.innerWidth < 500) {
     character.style.left = window.innerWidth / 2 + 'px';
     character.style.transform = 'translateX(-50%)';
+    character.style.visibility = 'hidden';
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
@@ -187,10 +188,10 @@ function movemobile() {
         }
         const characterWidth = character.offsetWidth;
         const containerWidth = playGround.offsetWidth;
-        if (moveRight && parseFloat(character.style.left) < containerWidth - characterWidth) {
+        if (moveRight && parseFloat(character.style.left) < containerWidth - 25) {
             character.style.left = parseFloat(character.style.left) + CharacterSpeed + 'px';
         }
-        if (moveLeft && parseFloat(character.style.left) > 0) {
+        if (moveLeft && parseFloat(character.style.left) > 25) {
             character.style.left = parseFloat(character.style.left) - CharacterSpeed + 'px';
         }
         if (moveRight || moveLeft) {
