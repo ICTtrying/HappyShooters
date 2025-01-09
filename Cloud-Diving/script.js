@@ -9,8 +9,10 @@ let wait2 = false;
 let hit = false;
 let GameOnline = false;
 let CharacterSpeed = 1;
+let title = document.getElementById('Title');
 if (window.innerWidth <= 500) {
     CharacterSpeed = 0.7;
+    document.documentElement.requestFullscreen();
 }
 
 document.getElementById('StartButton').addEventListener('click', () => {
@@ -18,6 +20,7 @@ document.getElementById('StartButton').addEventListener('click', () => {
     document.getElementById('StartButton').style.display = 'none';
     document.getElementById('cloudcount').style.visibility = 'visible';
     document.getElementById('HitCount').innerHTML = '0';
+    title.style.display = 'none';
     character.style.animation = 'falling 3s linear infinite';
     NewCloud();
     score.style.visibility = 'visible';
@@ -193,4 +196,5 @@ function gameOver() {
     speed = 6;
     CharacterSpeed = 1;
     move();
+    title.style.display = 'block';
 };

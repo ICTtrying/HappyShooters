@@ -16,6 +16,17 @@ body {
     background-color: rgb(0, 140, 255);
 }
 
+#ContainerFalling h1 {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 60px;
+    user-select: none;
+    white-space: nowrap;
+}
+
 #cloud {
     background-image: url('https://i.pinimg.com/originals/8f/6e/65/8f6e6534617dcdc81ace386e4b6905a1.png');
     background-size: contain;
@@ -149,6 +160,7 @@ body {
         width: 50px;
         height: 50px;
         left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     #score {
@@ -157,5 +169,9 @@ body {
 
     #cloudcount {
         font-size: 20px;
+    }
+    #ContainerFalling h1 {
+        top: 1%;
+        font-size: 40px;
     }
 }
