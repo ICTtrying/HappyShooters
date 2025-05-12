@@ -17,6 +17,7 @@ let scoregame = document.getElementById('scoregame');
 let scoremenu = document.getElementById('scoremenu');
 let highscore = document.getElementById('highscore');
 highscore.innerHTML = localStorage.getItem('HighScore');
+
 if (localStorage.getItem('HighScore') === null) {
     localStorage.setItem('HighScore', '0');
     highscore.innerHTML = '0';
@@ -258,5 +259,4 @@ function gameOver() {
         localStorage.setItem('HighScore', score.innerHTML);
         highscore.innerHTML = score.innerHTML;
     }
-
-}
+};
