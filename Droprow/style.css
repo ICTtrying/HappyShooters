@@ -229,13 +229,14 @@ body {
         opacity: 1;
     }
     95% {
-        top: calc(100% - 245px);
+        top: calc(100% - 245px); /* ongeveer bij de onderkant */
         opacity: 1;
     }
     100% {
         opacity: 0;
     }
 }
+
 @media (max-height: 800px) {
     #youlosetext {
         font-size: 3rem;
@@ -254,14 +255,14 @@ body {
             opacity: 1;
         }
         95% {
-            top: calc(100% - 160px);
+            top: calc(100% - 165px); /* ongeveer bij de onderkant */
             opacity: 1;
         }
         100% {
             opacity: 0;
-        }
-        
+        } 
     }
+    
     #blue-circle, #red-circle, #green-circle {
         width: 28px;
         height: 28px;
