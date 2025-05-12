@@ -7,33 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="background-dark">
-        <div id="startscreen">
-            <h1 id="title">Welcome to Droprow!</h1>
-            <p><strong>match the colors to earn points!</strong></p>
-            <p>Click the button below to start the game.</p>
-            <button id="start-button">Start Game</button>
-            <p>score: <span id="score-homescreen">0</span></p>
-            <p >High Score: <span id="high-score">0</span></p>
+    <div id="game-container">
+        <div id="background-dark">
+            <div id="startscreen">
+                <h1 id="title">Welcome to Droprow!</h1>
+                <p><strong>match the colors to earn points!</strong></p>
+                <p>Click the button below to start the game.</p>
+                <button id="start-button">Start Game</button>
+                <p>score: <span id="score-homescreen">0</span></p>
+                <p >High Score: <span id="high-score">0</span></p>
+            </div>
         </div>
-    </div>
-    <div id="countdown">3</div>
-    <div id="score-container">
-        Score: <span id="score">0</span>
-    </div>
-    <h1 id="youlosetext">You lose!</h1>
-    <div class="row blue-row dropdown">
-    </div>
-    <div>
-        <svg id="triangle" viewBox="0 0 100 100">
-            <polygon points="50,0 0,100 100,100" />
-        </svg>
-    </div>
-    <div id="blue-circle">
-    </div>
-    <div id="red-circle">
-    </div>
-    <div id="green-circle">
+        <div id="countdown">3</div>
+        <div id="score-container">
+            Score: <span id="score">0</span>
+        </div>
+        <h1 id="youlosetext">You lose!</h1>
+        <div class="row blue-row dropdown">
+        </div>
+        <div>
+            <svg id="triangle" viewBox="0 0 100 100">
+                <polygon points="50,0 0,100 100,100" />
+            </svg>
+        </div>
+        <div id="blue-circle">
+        </div>
+        <div id="red-circle">
+        </div>
+        <div id="green-circle">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

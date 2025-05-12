@@ -5,6 +5,8 @@ const startButton = document.getElementById("start-button");
 const countdownElement = document.getElementById("countdown");
 const highscore = document.getElementById("high-score");
 highscore.innerHTML = localStorage.getItem("highscore") || 0;
+const gameContainer = document.getElementById("game-container");
+
 let canclick = false;
 
 startButton.addEventListener("click", function () {
@@ -37,7 +39,7 @@ function startcountdown() {
             countdownElement.style.display = "none";
             const newRow = document.createElement("div");
             newRow.classList.add("row");
-            document.body.appendChild(newRow);
+            gameContainer.appendChild(newRow);
             droprow(newRow);
         }
     }, 1000);
@@ -72,7 +74,7 @@ function droprow(targetRow) {
             score.innerHTML = parseInt(score.innerHTML) + 1;
             const newRow = document.createElement("div");
             newRow.classList.add("row");
-            document.body.appendChild(newRow);
+            gameContainer.appendChild(newRow);
             droprow(newRow);
         } else {
             gameover();
