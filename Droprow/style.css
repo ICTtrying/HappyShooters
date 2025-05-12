@@ -212,6 +212,9 @@ body {
     text-align: center;
     user-select: none;
     visibility: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 @keyframes dropdown {
     0% {

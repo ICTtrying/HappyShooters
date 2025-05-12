@@ -1,4 +1,3 @@
-let row = document.querySelector(".row");
 let currentcolor = "blue";
 const triangle = document.getElementById("triangle");
 const score = document.getElementById("score");
@@ -8,16 +7,24 @@ const highscore = document.getElementById("high-score");
 highscore.innerHTML = localStorage.getItem("highscore") || 0;
 let canclick = false;
 
-
 startButton.addEventListener("click", function () {
     canclick = true;
+    score.innerHTML = 0;
+
+    // Oude rijen verwijderen
+    document.querySelectorAll(".row").forEach(r => r.remove());
+
     changeColor();
+    document.getElementById("youlosetext").style.visibility = "hidden";
     document.getElementById("background-dark").style.visibility = "hidden";
     startcountdown();
 });
 
 function startcountdown() {
     countdownElement.style.visibility = "visible";
+    countdownElement.style.display = "flex";
+    countdownElement.style.alignItems = "center";
+    countdownElement.style.justifyContent = "center";
     countdownElement.classList.add("countdown-pop");
     countdownElement.style.animation = "pop 0.7s";
     let countdown = 3;
@@ -28,7 +35,10 @@ function startcountdown() {
         if (countdown <= 0) {
             clearInterval(countdownInterval);
             countdownElement.style.display = "none";
-            droprow(row);
+            const newRow = document.createElement("div");
+            newRow.classList.add("row");
+            document.body.appendChild(newRow);
+            droprow(newRow);
         }
     }, 1000);
 }
@@ -71,7 +81,6 @@ function droprow(targetRow) {
     });
 }
 
-//change color
 function changeColor() {
     if (canclick === true){
         document.addEventListener("click", function () {
@@ -108,6 +117,8 @@ function changeColor() {
 function gameover() {
     console.log("gameover");
     document.getElementById("youlosetext").style.color = "red";
+    document.getElementById("youlosetext").innerHTML = "you lose!";
+    const youLoseText = document.getElementById("youlosetext");
     canclick = false;
     document.getElementById("score-homescreen").innerHTML = score.innerHTML;
     if (parseInt(score.innerHTML) > parseInt(highscore.innerHTML)) {
@@ -117,9 +128,15 @@ function gameover() {
         localStorage.setItem("highscore", highscore.innerHTML);
     }
     
+    
     document.getElementById("youlosetext").style.visibility = "visible";
-    document.getElementById("youlosetext").style.animation = "shake 0.7s";
+    youLoseText.style.animation = "none";
+    void youLoseText.offsetWidth; // geen flauw idee wat dit doet maar het werkt
+    youLoseText.style.animation = "shake 0.7s";
     document.getElementById("background-dark").style.visibility = "visible";
     document.getElementById("title").innerHTML = "try again?";
-    document.getElementById("background-dark").style.animation = "fadeIn 0.7s";
+    const backgroundDark = document.getElementById("background-dark");
+    backgroundDark.style.animation = "none";
+    void backgroundDark.offsetWidth; // force reflow to reset animation
+    backgroundDark.style.animation = "fadeIn 0.7s";
 }
