@@ -6,6 +6,7 @@ const countdownElement = document.getElementById("countdown");
 const highscore = document.getElementById("high-score");
 highscore.innerHTML = localStorage.getItem("highscore") || 0;
 const gameContainer = document.getElementById("game-container");
+let animationspeed = 4;
 
 let canclick = false;
 
@@ -47,7 +48,7 @@ function startcountdown() {
 
 function droprow(targetRow) {
     targetRow.classList.add("dropdown");
-    targetRow.style.animation = "dropdown 4s linear";
+    targetRow.style.animation = `dropdown ${animationspeed}s linear`;
     const deg = Math.random() * 10 - 5;
     targetRow.style.transform = `rotate(${deg}deg)`;
     const randomX = Math.floor(Math.random() * 3 + 1);
@@ -71,6 +72,8 @@ function droprow(targetRow) {
 
     targetRow.addEventListener('animationend', function handler() {
         if (targetRow.style.backgroundColor === currentcolor) {
+            fasterspeed();
+            targetRow.style.animation = "none";
             score.innerHTML = parseInt(score.innerHTML) + 1;
             const newRow = document.createElement("div");
             newRow.classList.add("row");
@@ -112,6 +115,16 @@ function changeColor() {
                     redCircle.style.border = "4px solid gray";
                     break;
             }
+        });
+    }
+}
+
+function fasterspeed() {
+    if (animationspeed > 1.4) {
+        animationspeed -= 0.1;
+        const rows = document.querySelectorAll(".row");
+        rows.forEach(row => {
+            row.style.animationDuration = `${animationspeed}s`;
         });
     }
 }
